@@ -191,11 +191,11 @@ export default function ViviendoBizkaiaHome() {
               </div>
 
               <h1 className="text-4xl font-black leading-tight tracking-tight md:text-6xl">
-                Rehabilitación de fachadas, SATE y revestimientos en Bizkaia.
+                Rehabilitación de fachadas, SATE y envolventes exteriores en Bizkaia.
               </h1>
 
               <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-neutral-600">
-                Ejecutamos trabajos exteriores con planificación, seguridad y compromiso real con el resultado final.
+                Trabajamos para comunidades, constructoras y promotores con una ejecución ordenada, segura y profesional.
               </p>
 
               <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
