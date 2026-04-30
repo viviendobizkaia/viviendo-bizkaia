@@ -23,6 +23,12 @@ function Icon({ name, className = "h-6 w-6" }) {
         <path d="m13 6 6 6-6 6" />
       </svg>
     ),
+    shield: (
+      <svg {...commonProps}>
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" />
+        <path d="m9 12 2 2 4-5" />
+      </svg>
+    ),
     building: (
       <svg {...commonProps}>
         <path d="M4 21V7a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v14" />
@@ -33,18 +39,19 @@ function Icon({ name, className = "h-6 w-6" }) {
         <path d="M3 21h18" />
       </svg>
     ),
-    shield: (
-      <svg {...commonProps}>
-        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" />
-        <path d="m9 12 2 2 4-5" />
-      </svg>
-    ),
     helmet: (
       <svg {...commonProps}>
         <path d="M3 18h18" />
         <path d="M5 18v-5a7 7 0 0 1 14 0v5" />
         <path d="M9 18v-7" />
         <path d="M15 18v-7" />
+      </svg>
+    ),
+    hammer: (
+      <svg {...commonProps}>
+        <path d="m15 12-8.5 8.5a2.12 2.12 0 0 1-3-3L12 9" />
+        <path d="m17.64 15 3.12-3.12a2.5 2.5 0 0 0 0-3.54l-5.1-5.1a2.5 2.5 0 0 0-3.54 0L9 6.36" />
+        <path d="m14 7 3 3" />
       </svg>
     ),
     phone: (
@@ -68,13 +75,6 @@ function Icon({ name, className = "h-6 w-6" }) {
       <svg {...commonProps}>
         <circle cx="12" cy="12" r="10" />
         <path d="m9 12 2 2 4-5" />
-      </svg>
-    ),
-    hammer: (
-      <svg {...commonProps}>
-        <path d="m15 12-8.5 8.5a2.12 2.12 0 0 1-3-3L12 9" />
-        <path d="m17.64 15 3.12-3.12a2.5 2.5 0 0 0 0-3.54l-5.1-5.1a2.5 2.5 0 0 0-3.54 0L9 6.36" />
-        <path d="m14 7 3 3" />
       </svg>
     )
   };
@@ -150,27 +150,17 @@ const strengths = [
   "Compromiso con el resultado"
 ];
 
-function runSanityChecks() {
-  console.assert(services.length === 4, "Debe haber 4 servicios principales");
-  console.assert(steps.length === 3, "Debe haber 3 pasos de trabajo");
-  console.assert(CONTACT_EMAIL.includes("@"), "El email debe ser válido");
-}
-
-runSanityChecks();
-
 export default function ViviendoBizkaiaHome() {
   return (
     <div className="min-h-screen bg-slate-50 text-neutral-950">
       <header className="sticky top-0 z-50 border-b border-neutral-200 bg-white/95 backdrop-blur-xl">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-          <a href="#inicio" className="flex items-center gap-3">
-            <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-lime-200 bg-lime-50 text-lime-700">
-              <Icon name="building" className="h-6 w-6" />
-            </div>
-            <div>
-              <p className="text-lg font-bold tracking-tight">Viviendo Bizkaia</p>
-              <p className="text-xs uppercase tracking-[0.22em] text-neutral-500">Fachadas · SATE · Revestimientos</p>
-            </div>
+          <a href="#inicio" className="flex items-center">
+            <img
+              src="/logo-viviendo-bizkaia.png"
+              alt="Viviendo Bizkaia - Envolventes arquitectónicas y rehabilitación de fachadas"
+              className="h-14 w-auto md:h-16"
+            />
           </a>
 
           <nav className="hidden items-center gap-8 text-sm font-medium text-neutral-600 md:flex">
@@ -223,9 +213,6 @@ export default function ViviendoBizkaiaHome() {
                 src="/images/fachada-hero.jpg"
                 alt="Fachada rehabilitada"
                 className="h-[320px] w-full object-cover md:h-[480px]"
-                onError={(event) => {
-                  event.currentTarget.style.display = "none";
-                }}
               />
             </div>
           </div>
@@ -245,14 +232,7 @@ export default function ViviendoBizkaiaHome() {
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {services.map((service) => (
               <article key={service.title} className="overflow-hidden rounded-3xl border border-neutral-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
-                <img
-                  src={service.image}
-                  alt={service.title}
-                  className="h-44 w-full object-cover"
-                  onError={(event) => {
-                    event.currentTarget.style.display = "none";
-                  }}
-                />
+                <img src={service.image} alt={service.title} className="h-44 w-full object-cover" />
                 <div className="p-6">
                   <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-2xl bg-lime-100 text-lime-700">
                     <Icon name={service.icon} className="h-5 w-5" />
