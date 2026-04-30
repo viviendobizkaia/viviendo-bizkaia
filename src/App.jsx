@@ -159,7 +159,7 @@ export default function ViviendoBizkaiaHome() {
             <img
               src="/logo-viviendo-bizkaia.png"
               alt="Viviendo Bizkaia - Envolventes arquitectónicas y rehabilitación de fachadas"
-              className="h-14 w-auto md:h-16"
+              className="h-[80px] w-auto md:h-[90px]"
             />
           </a>
 
